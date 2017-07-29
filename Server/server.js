@@ -5,7 +5,7 @@ var root = __dirname
 var app = express();
 var port = 8000;
 
-app.use( express.static('./../public/dist' ));
+app.use( express.static('../public/dist' ));
 app.use(bp.json())
 
 require('./config/db.js');
