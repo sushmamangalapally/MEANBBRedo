@@ -1,0 +1,23 @@
+<h1>{{title}}</h1>
+<a [routerLink]='["/create"]'>Create a New Poll</a>
+<a [routerLink]='["/"]'>Logout</a>
+  <form  (submit)="Search()" #browsingformData="ngForm" method="post">
+  <label>Search</label>
+  <input type="text" name="search" [(ngModel)]="search" > 
+  <input type="submit" value="Search" > 
+  <br>  
+</form>  
+<table>
+  <tr >
+    <th>Name</th>
+    <th>Survey Questions</th>
+    <th>Date Posted</th>
+    <th >Action</th>
+  </tr>
+  <tr *ngFor="let poll of polls">
+    <td>{{poll.username}}</td>
+    <td><a [routerLink]='["/poll/", poll._id]'>{{poll.question}}</a></td>
+    <td>{{poll.createdAt}}</td>
+    <td><span *ngIf="poll.username == this.user.username"><button (click)="deletingPoll(poll)">Delete</button></span></td>
+  </tr>
+</table>

@@ -1,0 +1,41 @@
+<a [routerLink]='["/dashboard"]'>Cancel</a>
+
+<h1>Put the question and options here</h1>
+<form (submit)="CreatingPoll()" #gettingformDataforPoll="ngForm"  method='post'>
+  <label>Question</label>
+  <input required  type='text' minlength="8" name='questionpoll' [(ngModel)]="poll.Question" #questionpoll="ngModel" >
+  <div class="red" *ngIf="questionpoll.errors && (questionpoll.dirty || questionpoll.touched)">
+        <div [hidden]="!questionpoll.errors.required">
+          Question is required
+        </div>
+  </div> 
+  <label>Option 1</label>
+  <input required  type='text' minlength="3" name='optionone' [(ngModel)]="poll.Option1" #optionone="ngModel" >
+  <div class="red" *ngIf="optionone.errors && (optionone.dirty || optionone.touched)">
+        <div [hidden]="!optionone.errors.required">
+          Option One is required and it must be longer than 3 characters.
+        </div>
+  </div>
+  <label>Option 2</label>
+  <input required  type='text' minlength="3" name='optiontwo' [(ngModel)]="poll.Option2" #optiontwo="ngModel" >
+  <div class="red" *ngIf="optiontwo.errors && (optionone.dirty || optiontwo.touched)">
+        <div [hidden]="!optiontwo.errors.required">
+          Option Two is required and it must be longer than 3 characters.
+        </div>
+  </div> 
+  <label>Option 3</label>
+  <input required  type='text' minlength="3" name='optionthree' [(ngModel)]="poll.Option3" #optionthree="ngModel" >
+  <div class="red" *ngIf="optionthree.errors && (optionthree.dirty || optionthree.touched)">
+        <div [hidden]="!optionthree.errors.required">
+          Option Three is required and it must be longer than 3 characters.
+        </div>
+  </div> 
+  <label>Option 4</label>
+  <input required  type='text' minlength="3" name='optionfour' [(ngModel)]="poll.Option4" #optionfour="ngModel" >
+  <div class="red" *ngIf="optionfour.errors && (optionfour.dirty || optionfour.touched)">
+        <div [hidden]="!optionfour.errors.required">
+          Option Four is required and it must be longer than 3 characters.
+        </div>
+  </div>   
+  <input [disabled] = "questionpoll.errors || optionone.errors || optiontwo.errors ||  optionthree.errors || optionfour.errors"   type="submit" value="Create">
+</form>
