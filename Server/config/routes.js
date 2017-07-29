@@ -36,7 +36,7 @@ module.exports = function(app){
         Polls.searching(req, res)
     })
     app.all("*", (req,res,next) => {
-        res.sendfile(path.resolve("./public/dist/index.html"))
+        res.sendfile(path.resolve("./../public/dist/index.html"))
     })
 }
 
